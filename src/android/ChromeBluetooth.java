@@ -59,7 +59,7 @@ public class ChromeBluetooth extends CordovaPlugin {
 
   private BluetoothManager bluetoothManager;
   private BluetoothAdapter bluetoothAdapter;
-  private BluetoothLeScannerCompat leScanner;
+////  private BluetoothLeScannerCompat leScanner;
   private boolean isLeScanning;
   private boolean isDiscovering = false;
 
@@ -97,7 +97,7 @@ public class ChromeBluetooth extends CordovaPlugin {
     registerAdapterStateReceiver();
     bluetoothManager = (BluetoothManager) webView.getContext().getSystemService(Context.BLUETOOTH_SERVICE);
     bluetoothAdapter = bluetoothManager.getAdapter();
-    leScanner = BluetoothLeScannerCompatProvider.getBluetoothLeScannerCompat(webView.getContext());
+////    leScanner = BluetoothLeScannerCompatProvider.getBluetoothLeScannerCompat(webView.getContext());
     isLeScanning = false;
     enableBluetooth();
   }
@@ -251,7 +251,7 @@ public class ChromeBluetooth extends CordovaPlugin {
 
     // Reset low energy scanner or regular scanner if they are in scanning mode.
     if (isLeScanning) {
-      leScanner.stopScan(leScanCallback);
+////      leScanner.stopScan(leScanCallback);
     }
 
     if (bluetoothAdapter.isDiscovering()) {
@@ -259,7 +259,7 @@ public class ChromeBluetooth extends CordovaPlugin {
     }
 
     isLeScanning = true;
-    leScanner.startScan(null, settings, leScanCallback);
+////    leScanner.startScan(null, settings, leScanCallback);
 
     isDiscovering = true;
     bluetoothAdapter.startDiscovery();
@@ -276,7 +276,7 @@ public class ChromeBluetooth extends CordovaPlugin {
 
     if (isLeScanning) {
       isLeScanning = false;
-      leScanner.stopScan(leScanCallback);
+////      leScanner.stopScan(leScanCallback);
     }
 
     if (bluetoothAdapter.isDiscovering()) {
